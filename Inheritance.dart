@@ -1,9 +1,9 @@
 void main() {
-  Employee e = Employee(
+  Manager e = Manager(
       name: "Sachin",
       address: "Mumbai",
       age: 50,
-      post: "Batsman",
+      department: "Batting",
       salary: 1000);
   print(e);
 }
@@ -32,5 +32,27 @@ class Employee extends Person {
   @override
   String toString() {
     return " Employee(${super.toString()},Post: $post, Salary: $salary)";
+  }
+}
+
+class Manager extends Employee {
+  String department;
+
+  Manager(
+      {required name,
+      required address,
+      required age,
+      required salary,
+      required this.department})
+      : super(
+            name: name,
+            age: age,
+            address: address,
+            post: "Manager",
+            salary: salary);
+
+  @override
+  String toString() {
+    return " Manager(${super.toString()},Department:${this.department})";
   }
 }
